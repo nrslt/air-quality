@@ -35,8 +35,8 @@ def build_main_map():
                 "sourcetype": "raster",
                 "sourceattribution": "United States Geological Survey",
                 "source": [
-                    "https://basemap.nationalmap.gov/arcgis/rest/services/\
-                    USGSImageryOnly/MapServer/tile/{z}/{y}/{x}"
+                    "https://basemap.nationalmap.gov/arcgis/rest/services/"
+                    "USGSImageryOnly/MapServer/tile/{z}/{y}/{x}"
                 ]
             }
           ])

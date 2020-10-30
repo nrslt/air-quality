@@ -27,7 +27,7 @@ body = dbc.Container(
                     html.H2("Airqual project"),
                     html.P(
                          """\
-This app is a demo project that aims at displaying historical and predicted\
+This app is a demo project that aims at displaying historical and predicted \
 air quality measures."""
                            ),
                     dbc.Button("View details", color="secondary"),
