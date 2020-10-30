@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
-from app import App, build_graph
+from predictions import predictions_map, build_graph
 from homepage import Homepage
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
@@ -11,17 +11,19 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
 app.config.suppress_callback_exceptions = True
 
 app.layout = html.Div([
-    dcc.Location(id = 'url', refresh = False),
-    html.Div(id = 'page-content')
+    dcc.Location(id='url', refresh=False),
+    html.Div(id='page-content')
 ])
 
+
 @app.callback(Output('page-content', 'children'),
-            [Input('url', 'pathname')])
+              [Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/predictions':
-        return App()
+        return predictions_map()
     else:
         return Homepage()
+
 
 @app.callback(
     Output('output', 'children'),
@@ -31,7 +33,6 @@ def update_graph(city):
     graph = build_graph(city)
     return graph
 
+
 if __name__ == '__main__':
     app.run_server(debug=True)
-
-
