@@ -1,10 +1,22 @@
+"""The following is dedicated to elements of the homepage.
+"""
+# ------------------------------------------------------------------------------
+# Imports
+
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 
+from mainmap import build_main_map
+
 from navbar import Navbar
+
+# instantiating a navigation bar object
 nav = Navbar()
+
+# creating the main map fig object
+main_map_fig = build_main_map()
 
 body = dbc.Container(
     [
@@ -26,9 +38,11 @@ air quality measures."""
                  [
                      html.H2("Air quality historical data"),
                      dcc.Graph(
-                         figure={"data": [{"x": [1, 2, 3], "y": [1, 4, 9]}]}
+                         id='main_map',
+                         figure=main_map_fig
                             ),
-                        ]
+                        ],
+                        md=8
                      ),
                 ]
             )

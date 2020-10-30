@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
-from app import App, build_graph
+from predictions import predictions_map, build_graph
 from homepage import Homepage
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
@@ -19,7 +19,7 @@ app.layout = html.Div([
             [Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/predictions':
-        return App()
+        return predictions_map()
     else:
         return Homepage()
 
