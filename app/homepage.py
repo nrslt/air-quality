@@ -22,44 +22,44 @@ body = dbc.Container(
     [
        dbc.Row(
            [
-               dbc.Col(
+              dbc.Col(
                   [
-                     html.H2("Airqual project"),
-                     html.P(
+                    html.H2("Airqual project"),
+                    html.P(
                          """\
 This app is a demo project that aims at displaying historical and predicted\
 air quality measures."""
                            ),
-                           dbc.Button("View details", color="secondary"),
+                    dbc.Button("View details", color="secondary"),
                    ],
                   md=4,
                ),
               dbc.Col(
-                 [
-                     html.H2("Air quality historical data"),
-                     dcc.Graph(
+                  [
+                    html.H2("Air quality historical data"),
+                    dcc.Graph(
                          id='main_map',
                          figure=main_map_fig
                             ),
-                        ],
-                        md=8
-                     ),
-                ]
-            )
-       ],
-className="mt-4",
-)
+                   ],
+                  md=8
+              ),
+            ]
+        )
+    ],
+    className="mt-4",
+  )
+
 
 def Homepage():
     layout = html.Div([
-    nav,
-    body
-    ])
+                        nav,
+                        body
+                      ])
     return layout
 
-app = dash.Dash(__name__, external_stylesheets = [dbc.themes.UNITED])
+
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.UNITED])
 app.layout = Homepage()
 if __name__ == "__main__":
     app.run_server()
-
-
